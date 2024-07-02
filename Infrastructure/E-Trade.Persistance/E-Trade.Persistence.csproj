@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
-    <RootNamespace>E_Trade.Persistance</RootNamespace>
+    <RootNamespace>E_Trade.Persistence</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
@@ -21,6 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Core\E-TradeStore.Application\E-TradeStore.Application.csproj" />
     <ProjectReference Include="..\..\Core\E-TradeStore.Domain\E-TradeStore.Domain.csproj" />
   </ItemGroup>
 
