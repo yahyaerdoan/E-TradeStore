@@ -1,4 +1,5 @@
-﻿using E_TradeStore.Application.Features.Cqrs.Results.Category;
+﻿using E_TradeStore.Application.Features.Cqrs.Queries.Category;
+using E_TradeStore.Application.Features.Cqrs.Results.Category;
 using E_TradeStore.Application.Interfaces;
 using E_TradeStore.Domain.Entities;
 using System;
@@ -17,9 +18,9 @@ namespace E_TradeStore.Application.Features.Cqrs.Handlers.CategoryHandler
         {
             _categoryRepository = categoryRepository;
         }
-        public async Task<GetCategoryByIdQueryResult> Handle(int id)
+        public async Task<GetCategoryByIdQueryResult> Handle(GetCategoryByIdQuery getCategoryByIdQuery)
         {
-            var values = await _categoryRepository.GetByIdAsync(id);
+            var values = await _categoryRepository.GetByIdAsync(getCategoryByIdQuery.Id);
             return new GetCategoryByIdQueryResult
             {
                 Name = values.Name,

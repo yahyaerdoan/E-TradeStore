@@ -7,19 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace E_TradeStore.Application.Features.Cqrs.Handlers.CategoryHandler
-{
-    public class RemoveCategoryCommandHandler
-    {
-        private readonly IRepository<Category> _categoryRepository;
+namespace E_TradeStore.Application.Features.Cqrs.Handlers.CategoryHandler;
 
-        public RemoveCategoryCommandHandler(IRepository<Category> categoryRepository)
-        {
-            _categoryRepository = categoryRepository;
-        }
-        public async Task Handle(DeleteCategoryCommand deleteCategoryCommand)
-        {
-            await _categoryRepository.DeleteAsync(deleteCategoryCommand.Id);
-        }
+public class RemoveCategoryCommandHandler
+{
+    private readonly IRepository<Category> _categoryRepository;
+
+    public RemoveCategoryCommandHandler(IRepository<Category> categoryRepository)
+    {
+        _categoryRepository = categoryRepository;
+    }
+    public async Task Handle(DeleteCategoryCommand deleteCategoryCommand)
+    {
+        await _categoryRepository.DeleteAsync(deleteCategoryCommand.Id);
     }
 }

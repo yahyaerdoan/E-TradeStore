@@ -7,4 +7,13 @@
     <RootNamespace>E_TradeStore.WebUserInterface</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.16" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Core\E-TradeStore.Application\E-TradeStore.Application.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\E-Trade.Persistance\E-Trade.Persistence.csproj" />
+  </ItemGroup>
+
 </Project>
