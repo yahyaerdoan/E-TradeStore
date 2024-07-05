@@ -1,8 +1,6 @@
 ﻿using E_TradeStore.Application.Features.Cqrs.Commands.ProductCommand;
 using E_TradeStore.Application.Features.Cqrs.Handlers.ProductHandler;
 using E_TradeStore.Application.Features.Cqrs.Queries.ProductQuery;
-using E_TradeStore.Application.Features.Cqrs.Results.ProductResult;
-using E_TradeStore.WebUserInterfaceLayer.Controllers;
 using Microsoft.AspNetCore.Mvc;
 
 namespace E_TradeStore.WebUserInterface.Controllers;
@@ -10,15 +8,15 @@ namespace E_TradeStore.WebUserInterface.Controllers;
 public class ProductController : Controller
 {
     private readonly CreateProductCommandHandler _createProductCommandHandler;
-    private readonly GetProductByIdCommandHandler _getProductByIdCommandHandler;
+    private readonly GetProductByIdQueryHandler _getProductByIdQueryHandler;
     private readonly GetProductQueryHandler _getProductQueryHandler;
     private readonly RemoveProductCommandHandler _removeProductCommandHandler;
     private readonly UpdateProductCommandHandler _updateProductCommandHandler;
 
-    public ProductController(CreateProductCommandHandler createProductCommandHandler, GetProductByIdCommandHandler getProductByIdCommandHandler, GetProductQueryHandler getProductQueryHandler, RemoveProductCommandHandler removeProductCommandHandler, UpdateProductCommandHandler updateProductCommandHandler)
+    public ProductController(CreateProductCommandHandler createProductCommandHandler, GetProductByIdQueryHandler getProductByIdQueryHandler, GetProductQueryHandler getProductQueryHandler, RemoveProductCommandHandler removeProductCommandHandler, UpdateProductCommandHandler updateProductCommandHandler)
     {
         _createProductCommandHandler = createProductCommandHandler;
-        _getProductByIdCommandHandler = getProductByIdCommandHandler;
+        _getProductByIdQueryHandler = getProductByIdQueryHandler;
         _getProductQueryHandler = getProductQueryHandler;
         _removeProductCommandHandler = removeProductCommandHandler;
         _updateProductCommandHandler = updateProductCommandHandler;
@@ -48,7 +46,7 @@ public class ProductController : Controller
     [HttpGet]
     public async Task<IActionResult> UpdateProduct(int id)
     {
-        var values = await _getProductByIdCommandHandler.Handle(new GetProductByIdQuery(id));
+        var values = await _getProductByIdQueryHandler.Handle(new GetProductByIdQuery(id));
         return View(values);
     }
     [HttpPost]

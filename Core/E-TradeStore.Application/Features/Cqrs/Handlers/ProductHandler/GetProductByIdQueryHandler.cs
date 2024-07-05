@@ -5,11 +5,11 @@ using E_TradeStore.Domain.Entities;
 
 namespace E_TradeStore.Application.Features.Cqrs.Handlers.ProductHandler
 {
-    public class GetProductByIdCommandHandler
+    public class GetProductByIdQueryHandler
     {
         private readonly IRepository<Product> _productRepository;
 
-        public GetProductByIdCommandHandler(IRepository<Product> productRepository)
+        public GetProductByIdQueryHandler(IRepository<Product> productRepository)
         {
             _productRepository = productRepository;
         }

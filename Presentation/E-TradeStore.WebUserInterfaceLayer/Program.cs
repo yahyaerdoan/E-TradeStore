@@ -12,7 +12,7 @@ builder.Services.AddDbContext<ETradeDbContext>();
 builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 
 builder.Services.AddScoped<CreateProductCommandHandler>();
-builder.Services.AddScoped<GetProductByIdCommandHandler>();
+builder.Services.AddScoped<GetProductByIdQueryHandler>();
 builder.Services.AddScoped<GetProductQueryHandler>();
 builder.Services.AddScoped<RemoveProductCommandHandler>();
 builder.Services.AddScoped<UpdateProductCommandHandler>();
